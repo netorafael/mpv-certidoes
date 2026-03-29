@@ -6,17 +6,9 @@ const GovHeader = () => {
       {/* Barra do Governo */}
       <div className="bg-primary-dark py-1">
         <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img
-              src="https://www.gov.br/ds/assets/img/govbr-logo-small.png"
-              alt="Logo Gov.br"
-              className="h-4"
-              loading="lazy"
-            />
-            <span className="text-primary-foreground text-xs hidden sm:inline">
-              Justiça do Trabalho
-            </span>
-          </div>
+          <span className="text-primary-foreground text-xs">
+            Justiça do Trabalho — Tribunal Superior do Trabalho
+          </span>
           <nav aria-label="Links institucionais" className="flex items-center gap-4">
             <a
               href="https://www.gov.br/pt-br/acessibilidade"
@@ -39,20 +31,19 @@ const GovHeader = () => {
       </div>
 
       {/* Barra principal */}
-      <div className="bg-card border-b border-border py-4">
+      <div className="bg-card border-b border-border py-3">
         <div className="container max-w-6xl mx-auto px-4 flex items-center gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded bg-primary flex items-center justify-center" aria-hidden="true">
-              <span className="text-primary-foreground font-bold text-sm">TST</span>
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground leading-tight">
-                Tribunal Superior do Trabalho
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Portal da Advocacia
-              </p>
-            </div>
+          <a href="https://www.tst.jus.br" className="flex items-center gap-3" aria-label="Página inicial do TST">
+            <img
+              src="https://www.tst.jus.br/image/layout_set_logo?img_id=10155&t=1748446671988"
+              alt="Logo Justiça do Trabalho - Tribunal Superior do Trabalho"
+              className="h-12"
+            />
+          </a>
+          <div className="hidden sm:block border-l border-border pl-3">
+            <p className="text-xs text-muted-foreground">
+              Portal da Advocacia
+            </p>
           </div>
         </div>
       </div>
