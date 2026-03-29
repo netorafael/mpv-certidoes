@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, Mail, KeyRound, Scale } from "lucide-react";
+import { ArrowLeft, Scale, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import GovHeader from "@/components/GovHeader";
@@ -7,7 +7,13 @@ import GovFooter from "@/components/GovFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const breadcrumbItems = [
   { label: "Serviços", href: "https://www.tst.jus.br/servicos" },
@@ -17,10 +23,24 @@ const breadcrumbItems = [
   { label: "Emitir Certidão" },
 ];
 
-type AuthStep = "choose" | "login" | "govbr" | "certificado";
+const seccionais = [
+  "AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT",
+  "PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO",
+];
 
 const EmitirCertidao = () => {
-  const [step, setStep] = useState<AuthStep>("choose");
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [oabNumero, setOabNumero] = useState("");
+  const [oabSeccional, setOabSeccional] = useState("");
+  const [periodoInicio, setPeriodoInicio] = useState("");
+  const [periodoFim, setPeriodoFim] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -53,253 +73,201 @@ const EmitirCertidao = () => {
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Emitir Certidão de Exercício da Advocacia
+              Certidão Judicial de Exercício da Advocacia
             </h1>
             <p className="text-sm text-muted-foreground mt-2 max-w-2xl leading-relaxed">
-              Para emitir sua certidão, é necessário se identificar. Escolha uma
-              das opções de autenticação abaixo.
+              Preencha os campos abaixo para emitir sua certidão. Todos os campos
+              marcados com asterisco (*) são obrigatórios.
             </p>
           </div>
 
-          <div className="max-w-lg mx-auto mb-12">
-            {step === "choose" && (
-              <section aria-label="Opções de autenticação" className="space-y-4">
-                <div className="bg-card border border-border rounded p-6 space-y-5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Shield className="h-5 w-5 text-primary" aria-hidden="true" />
-                    <h2 className="text-base font-semibold text-foreground">
-                      Identificação do solicitante
-                    </h2>
+          <div className="max-w-2xl mb-12">
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Dados pessoais */}
+                <fieldset className="bg-card border border-border rounded p-6 space-y-4">
+                  <legend className="text-sm font-semibold text-foreground px-1">
+                    Dados do(a) advogado(a)
+                  </legend>
+
+                  <div className="space-y-1.5">
+                    <Label htmlFor="nome" className="text-sm">
+                      Nome completo <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="nome"
+                      value={nome}
+                      onChange={(e) => setNome(e.target.value)}
+                      placeholder="Informe seu nome completo"
+                      required
+                      aria-required="true"
+                      className="text-sm"
+                    />
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Escolha como deseja se identificar para emitir a certidão.
-                    Seus dados serão usados apenas para validar a solicitação.
-                  </p>
-
-                  <div className="space-y-3">
-                    {/* Gov.br */}
-                    <button
-                      onClick={() => setStep("govbr")}
-                      className="w-full flex items-center gap-4 p-4 rounded border border-border bg-background hover:bg-muted/50 hover:border-primary/30 transition-all text-left focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 group"
-                      aria-label="Entrar com conta Gov.br"
-                    >
-                      <div className="w-10 h-10 rounded bg-primary flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                        <span className="text-primary-foreground text-xs font-bold">gov</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                          Entrar com Gov.br
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          Use sua conta do portal Gov.br (recomendado)
-                        </p>
-                      </div>
-                    </button>
-
-                    {/* Certificado Digital */}
-                    <button
-                      onClick={() => setStep("certificado")}
-                      className="w-full flex items-center gap-4 p-4 rounded border border-border bg-background hover:bg-muted/50 hover:border-primary/30 transition-all text-left focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 group"
-                      aria-label="Entrar com certificado digital"
-                    >
-                      <div className="w-10 h-10 rounded bg-success/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                        <KeyRound className="h-5 w-5 text-success" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                          Certificado Digital (e-CPF / e-CNPJ)
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          Autenticação via certificado digital ICP-Brasil
-                        </p>
-                      </div>
-                    </button>
-
-                    {/* Login TST */}
-                    <button
-                      onClick={() => setStep("login")}
-                      className="w-full flex items-center gap-4 p-4 rounded border border-border bg-background hover:bg-muted/50 hover:border-primary/30 transition-all text-left focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 group"
-                      aria-label="Entrar com e-mail e senha"
-                    >
-                      <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                        <Mail className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                          E-mail e senha
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">
-                          Acesse com seu cadastro no portal do TST
-                        </p>
-                      </div>
-                    </button>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="cpf" className="text-sm">
+                      CPF <span className="text-destructive">*</span>
+                    </Label>
+                    <Input
+                      id="cpf"
+                      value={cpf}
+                      onChange={(e) => setCpf(e.target.value)}
+                      placeholder="000.000.000-00"
+                      required
+                      aria-required="true"
+                      className="text-sm max-w-xs"
+                    />
                   </div>
-                </div>
 
-                <div className="bg-muted/50 border border-border rounded p-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="oab-numero" className="text-sm">
+                        Número da OAB <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="oab-numero"
+                        value={oabNumero}
+                        onChange={(e) => setOabNumero(e.target.value)}
+                        placeholder="Ex: 123456"
+                        required
+                        aria-required="true"
+                        className="text-sm"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="oab-seccional" className="text-sm">
+                        Seccional (UF) <span className="text-destructive">*</span>
+                      </Label>
+                      <Select value={oabSeccional} onValueChange={setOabSeccional} required>
+                        <SelectTrigger id="oab-seccional" className="text-sm" aria-required="true">
+                          <SelectValue placeholder="Selecione" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {seccionais.map((uf) => (
+                            <SelectItem key={uf} value={uf}>
+                              {uf}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </fieldset>
+
+                {/* Período */}
+                <fieldset className="bg-card border border-border rounded p-6 space-y-4">
+                  <legend className="text-sm font-semibold text-foreground px-1">
+                    Período de atuação
+                  </legend>
+
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Segurança:</strong> Seus
-                    dados são protegidos e utilizados exclusivamente para emissão
-                    da certidão, conforme a LGPD (Lei nº 13.709/2018).
+                    Informe o período em que deseja certificar sua atuação como
+                    advogado(a) em processos perante o TST.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <Label htmlFor="periodo-inicio" className="text-sm">
+                        Data inicial <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="periodo-inicio"
+                        type="date"
+                        value={periodoInicio}
+                        onChange={(e) => setPeriodoInicio(e.target.value)}
+                        required
+                        aria-required="true"
+                        className="text-sm"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <Label htmlFor="periodo-fim" className="text-sm">
+                        Data final <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="periodo-fim"
+                        type="date"
+                        value={periodoFim}
+                        onChange={(e) => setPeriodoFim(e.target.value)}
+                        required
+                        aria-required="true"
+                        className="text-sm"
+                      />
+                    </div>
+                  </div>
+                </fieldset>
+
+                {/* Submit */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <Button
+                    type="submit"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+                  >
+                    <Search className="h-4 w-4" aria-hidden="true" />
+                    Consultar e emitir certidão
+                  </Button>
+                  <p className="text-xs text-muted-foreground">
+                    A consulta será feita nos sistemas do TST.
                   </p>
                 </div>
-              </section>
-            )}
-
-            {step === "govbr" && (
-              <section aria-label="Login Gov.br" className="space-y-4">
-                <div className="bg-card border border-border rounded p-6 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded bg-primary flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                      <span className="text-primary-foreground text-xs font-bold">gov</span>
-                    </div>
-                    <div>
-                      <h2 className="text-base font-semibold text-foreground">
-                        Entrar com Gov.br
-                      </h2>
-                      <p className="text-xs text-muted-foreground">
-                        Você será redirecionado ao portal Gov.br
-                      </p>
-                    </div>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-3">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cpf-govbr" className="text-sm">CPF</Label>
-                      <Input
-                        id="cpf-govbr"
-                        placeholder="000.000.000-00"
-                        className="text-sm"
-                        aria-required="true"
-                      />
-                    </div>
-                  </div>
-
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    Continuar para Gov.br
-                  </Button>
-                </div>
-
-                <button
-                  onClick={() => setStep("choose")}
-                  className="text-sm text-primary hover:underline"
-                >
-                  ← Voltar às opções de autenticação
-                </button>
-              </section>
-            )}
-
-            {step === "certificado" && (
-              <section aria-label="Certificado Digital" className="space-y-4">
-                <div className="bg-card border border-border rounded p-6 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded bg-success/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                      <KeyRound className="h-5 w-5 text-success" />
-                    </div>
-                    <div>
-                      <h2 className="text-base font-semibold text-foreground">
-                        Certificado Digital
-                      </h2>
-                      <p className="text-xs text-muted-foreground">
-                        Autenticação via ICP-Brasil
-                      </p>
-                    </div>
-                  </div>
-
-                  <Separator />
-
-                  <div className="bg-muted/50 rounded p-4 space-y-2">
-                    <p className="text-sm text-foreground font-medium">
-                      Instruções
+              </form>
+            ) : (
+              /* Resultado */
+              <div className="space-y-6">
+                <div className="bg-success/10 border border-success/30 rounded p-6 flex items-start gap-3">
+                  <Scale className="h-6 w-6 text-success flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">
+                      Certidão gerada com sucesso
                     </p>
-                    <ol className="text-sm text-muted-foreground space-y-1.5 list-decimal pl-5 leading-relaxed">
-                      <li>Conecte seu token ou smartcard ao computador</li>
-                      <li>Verifique se o driver do certificado está instalado</li>
-                      <li>Clique em "Autenticar" para iniciar a validação</li>
-                    </ol>
+                    <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                      A Certidão Judicial de Exercício da Advocacia para{" "}
+                      <strong className="text-foreground">{nome}</strong> (OAB {oabNumero}/{oabSeccional}),
+                      referente ao período de {periodoInicio} a {periodoFim}, foi
+                      gerada e está disponível para download.
+                    </p>
                   </div>
-
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
-                    <KeyRound className="h-4 w-4" aria-hidden="true" />
-                    Autenticar com Certificado
-                  </Button>
                 </div>
 
-                <button
-                  onClick={() => setStep("choose")}
-                  className="text-sm text-primary hover:underline"
-                >
-                  ← Voltar às opções de autenticação
-                </button>
-              </section>
-            )}
-
-            {step === "login" && (
-              <section aria-label="Login com e-mail" className="space-y-4">
-                <div className="bg-card border border-border rounded p-6 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                      <Mail className="h-5 w-5 text-primary" />
+                <div className="bg-card border border-border rounded p-5 space-y-3">
+                  <h2 className="text-sm font-semibold text-foreground">
+                    Dados da certidão
+                  </h2>
+                  <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+                    <div>
+                      <dt className="text-muted-foreground">Nome</dt>
+                      <dd className="text-foreground font-medium">{nome}</dd>
                     </div>
                     <div>
-                      <h2 className="text-base font-semibold text-foreground">
-                        Acessar com e-mail e senha
-                      </h2>
-                      <p className="text-xs text-muted-foreground">
-                        Cadastro do Portal do TST
-                      </p>
+                      <dt className="text-muted-foreground">CPF</dt>
+                      <dd className="text-foreground font-medium">{cpf}</dd>
                     </div>
-                  </div>
-
-                  <Separator />
-
-                  <div className="space-y-3">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="email" className="text-sm">E-mail</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="seu@email.com"
-                        className="text-sm"
-                        aria-required="true"
-                      />
+                    <div>
+                      <dt className="text-muted-foreground">OAB</dt>
+                      <dd className="text-foreground font-medium">{oabNumero}/{oabSeccional}</dd>
                     </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="senha" className="text-sm">Senha</Label>
-                      <Input
-                        id="senha"
-                        type="password"
-                        placeholder="••••••••"
-                        className="text-sm"
-                        aria-required="true"
-                      />
+                    <div>
+                      <dt className="text-muted-foreground">Período</dt>
+                      <dd className="text-foreground font-medium">{periodoInicio} a {periodoFim}</dd>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <a href="#" className="text-xs text-primary hover:underline">
-                        Esqueci minha senha
-                      </a>
-                      <a href="#" className="text-xs text-primary hover:underline">
-                        Criar cadastro
-                      </a>
-                    </div>
-                  </div>
-
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
-                    <Scale className="h-4 w-4" aria-hidden="true" />
-                    Entrar e emitir certidão
-                  </Button>
+                  </dl>
                 </div>
 
-                <button
-                  onClick={() => setStep("choose")}
-                  className="text-sm text-primary hover:underline"
-                >
-                  ← Voltar às opções de autenticação
-                </button>
-              </section>
+                <div className="flex gap-3">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                    Baixar certidão (PDF)
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => setSubmitted(false)}
+                  >
+                    Nova consulta
+                  </Button>
+                </div>
+              </div>
             )}
           </div>
         </div>
