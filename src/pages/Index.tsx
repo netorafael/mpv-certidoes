@@ -26,7 +26,7 @@ const certidoes = [
     title: "Certidão Judicial de Exercício da Advocacia",
     description:
       "Comprova a atuação de advogado(a) em processos no TST. Útil para fins de comprovação de atividade jurídica.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/exercicio-advocacia",
+    href: "/exercicio-advocacia",
     icon: <Scale className="h-5 w-5 text-primary" />,
     isExternal: false,
   },

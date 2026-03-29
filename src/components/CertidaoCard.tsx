@@ -1,4 +1,5 @@
 import { FileText, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface CertidaoCardProps {
   title: string;
@@ -29,16 +30,28 @@ const CertidaoCard = ({ title, description, href, icon, isExternal }: CertidaoCa
   );
 
   if (href) {
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          className="block no-underline focus:outline-none"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Acessar ${title}`}
+        >
+          {content}
+        </a>
+      );
+    }
+
     return (
-      <a
-        href={href}
+      <Link
+        to={href}
         className="block no-underline focus:outline-none"
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
         aria-label={`Acessar ${title}`}
       >
         {content}
-      </a>
+      </Link>
     );
   }
 
