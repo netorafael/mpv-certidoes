@@ -1,4 +1,4 @@
-import { Scale, FileText, Clock, CheckCircle, AlertCircle, ArrowLeft } from "lucide-react";
+import { Scale, FileText, Clock, CheckCircle, AlertCircle, ArrowLeft, Phone, Mail, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import GovHeader from "@/components/GovHeader";
 import GovBreadcrumb from "@/components/GovBreadcrumb";
@@ -18,90 +18,82 @@ const helpItems: HelpItem[] = [
     question: "O que é a Certidão de Exercício da Advocacia?",
     answer: (
       <p>
-        É um documento oficial emitido pelo TST que comprova que um(a) advogado(a)
-        atuou em processos trabalhistas perante o Tribunal Superior do Trabalho.
-        Ela lista os processos em que houve participação efetiva como patrono(a).
+        A Certidão Judicial de Exercício da Advocacia comprova o exercício da
+        advocacia no Tribunal Superior do Trabalho (TST), abrangendo processos em{" "}
+        <strong>andamento, arquivados ou devolvidos</strong> aos Tribunais
+        Regionais do Trabalho (TRTs) de origem.
       </p>
     ),
   },
   {
-    question: "Para que serve essa certidão?",
-    answer: (
-      <div className="space-y-2">
-        <p>As principais finalidades são:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Comprovar atividade jurídica para concursos públicos da magistratura e do Ministério Público</li>
-          <li>Atender exigências de editais que pedem comprovação de prática forense</li>
-          <li>Demonstrar experiência profissional em processos seletivos</li>
-          <li>Instruir pedidos perante a OAB e outros órgãos</li>
-        </ul>
-      </div>
-    ),
-  },
-  {
-    question: "Quem pode solicitar?",
+    question: "Como a certidão é emitida?",
     answer: (
       <p>
-        Qualquer advogado(a) com inscrição ativa ou inativa na OAB que tenha
-        atuado em processos perante o TST. É necessário informar o número de
-        inscrição na OAB no momento da solicitação.
+        A certidão é expedida <strong>automaticamente e de forma gratuita</strong>,
+        a partir do número de inscrição no CPF do(a) advogado(a) informado pelo(a)
+        requerente. Basta informar o CPF na página de emissão.
       </p>
     ),
   },
   {
-    question: "Como solicitar a certidão?",
-    answer: (
-      <div className="space-y-2">
-        <p>A solicitação pode ser feita de duas formas:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>
-            <strong>Pelo sistema PJe:</strong> acesse o Processo Judicial Eletrônico
-            do TST e faça a solicitação diretamente pelo sistema.
-          </li>
-          <li>
-            <strong>Por e-mail:</strong> envie um pedido para{" "}
-            <a href="mailto:segjud@tst.jus.br" className="text-primary hover:underline font-medium">
-              segjud@tst.jus.br
-            </a>{" "}
-            informando seu nome completo, número da OAB e o período desejado.
-          </li>
-        </ul>
-      </div>
-    ),
-  },
-  {
-    question: "Quais informações devo enviar no pedido?",
-    answer: (
-      <div className="space-y-2">
-        <p>Inclua no seu pedido:</p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Nome completo do(a) advogado(a)</li>
-          <li>Número de inscrição na OAB (com seccional)</li>
-          <li>CPF</li>
-          <li>Período de atuação que deseja certificar</li>
-          <li>Finalidade da certidão (opcional, mas facilita o atendimento)</li>
-        </ul>
-      </div>
-    ),
-  },
-  {
-    question: "Qual o prazo de emissão?",
+    question: "Quais processos são incluídos na certidão automática?",
     answer: (
       <p>
-        A certidão é emitida em até 5 dias úteis após o recebimento da
-        solicitação, podendo variar conforme a demanda. Em períodos de recesso
-        forense, o prazo pode ser estendido. Você receberá a certidão no e-mail
-        informado na solicitação.
+        A certidão automática inclui exclusivamente os processos em que o(a)
+        advogado(a) esteja formalmente registrado(a) na autuação.{" "}
+        <strong>Não abrange processos com publicidade restrita.</strong>
+      </p>
+    ),
+  },
+  {
+    question: "E se eu precisar de uma certidão com parâmetros específicos?",
+    answer: (
+      <div className="space-y-2">
+        <p>
+          Para certidões com parâmetros específicos — como atuação em processo
+          com publicidade restrita, atuação em período determinado ou prática de
+          ato em processo específico — é necessário preencher um{" "}
+          <a
+            href="https://www.tst.jus.br/portal-da-advocacia/certidoes/exercicio-advocacia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline font-medium"
+          >
+            formulário específico
+          </a>
+          .
+        </p>
+        <p>
+          Neste caso, a certidão <strong>não será expedida automaticamente</strong>{" "}
+          e poderá estar sujeita ao recolhimento de emolumentos, conforme os itens
+          XV, "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "Como validar uma certidão já emitida?",
+    answer: (
+      <p>
+        A autenticidade da certidão pode ser verificada na página de emissão,
+        na aba "Autenticar certidão". Basta informar o código de autenticidade
+        presente no documento.
       </p>
     ),
   },
   {
     question: "A certidão tem custo?",
     answer: (
-      <p>
-        Não. A emissão da Certidão de Exercício da Advocacia pelo TST é
-        totalmente gratuita.
-      </p>
+      <div className="space-y-2">
+        <p>
+          A certidão automática (emitida por CPF) é <strong>gratuita</strong>.
+        </p>
+        <p>
+          Certidões com parâmetros específicos podem estar sujeitas ao
+          recolhimento de emolumentos, conforme a Instrução Normativa nº 20/2002
+          do TST.
+        </p>
+      </div>
     ),
   },
 ];
@@ -144,9 +136,9 @@ const ExercicioAdvocacia = () => {
                   Certidão Judicial de Exercício da Advocacia
                 </h1>
                 <p className="text-sm text-muted-foreground mt-2 max-w-2xl leading-relaxed">
-                  Comprove sua atuação como advogado(a) em processos no Tribunal
-                  Superior do Trabalho. Documento oficial, gratuito e com validade
-                  jurídica.
+                  Comprova o exercício da advocacia no TST, abrangendo processos
+                  em andamento, arquivados ou devolvidos aos TRTs de origem.
+                  Expedida automaticamente e de forma gratuita.
                 </p>
               </div>
               <Link to="/emitir-certidao" className="flex-shrink-0">
@@ -164,84 +156,120 @@ const ExercicioAdvocacia = () => {
               <div className="bg-card border border-border rounded p-5 flex items-start gap-3">
                 <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <p className="text-xs font-semibold text-foreground">Prazo de emissão</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Até 5 dias úteis</p>
+                  <p className="text-xs font-semibold text-foreground">Emissão</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Automática e imediata</p>
                 </div>
               </div>
               <div className="bg-card border border-border rounded p-5 flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-success flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <p className="text-xs font-semibold text-foreground">Custo</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Gratuito</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Gratuita (certidão automática)</p>
                 </div>
               </div>
               <div className="bg-card border border-border rounded p-5 flex items-start gap-3">
                 <FileText className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <p className="text-xs font-semibold text-foreground">Formato</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Digital (PDF por e-mail)</p>
+                  <p className="text-xs font-semibold text-foreground">Requisito</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Apenas o CPF do(a) advogado(a)</p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Step by step */}
-          <section aria-labelledby="steps-title" className="mb-10 max-w-3xl">
-            <h2 id="steps-title" className="text-lg font-semibold text-foreground mb-4">
-              Como solicitar
+          {/* Informações Gerais */}
+          <section aria-labelledby="info-title" className="mb-10 max-w-3xl">
+            <h2 id="info-title" className="text-lg font-semibold text-foreground mb-4">
+              Informações gerais
             </h2>
-            <ol className="space-y-4">
-              {[
-                {
-                  step: 1,
-                  title: "Reúna seus dados",
-                  desc: "Tenha em mãos seu nome completo, CPF, número da OAB (com seccional) e o período de atuação que deseja certificar.",
-                },
-                {
-                  step: 2,
-                  title: "Escolha o canal de atendimento",
-                  desc: "Você pode solicitar pelo sistema PJe do TST ou enviar um e-mail para segjud@tst.jus.br com as informações.",
-                },
-                {
-                  step: 3,
-                  title: "Aguarde a emissão",
-                  desc: "Após a solicitação, a SEGJUD analisará o pedido e emitirá a certidão em até 5 dias úteis. Você receberá o documento por e-mail.",
-                },
-              ].map((item) => (
-                <li key={item.step} className="flex gap-4 items-start">
-                  <div
-                    className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    <span className="text-primary-foreground text-sm font-bold">{item.step}</span>
-                  </div>
-                  <div className="pt-0.5">
-                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                    <p className="text-sm text-muted-foreground mt-0.5 leading-relaxed">{item.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <div className="bg-card border border-border rounded p-6 space-y-4 text-sm text-muted-foreground leading-relaxed">
+              <p>
+                A Certidão Judicial de Exercício da Advocacia comprova o exercício
+                da advocacia no Tribunal Superior do Trabalho (TST), abrangendo
+                processos em <strong className="text-foreground">andamento, arquivados ou devolvidos</strong> aos
+                Tribunais Regionais do Trabalho (TRTs) de origem.
+              </p>
+              <p>
+                Esta certidão é expedida automaticamente, de forma gratuita, a
+                partir do número de inscrição no CPF do(a) advogado(a) informado
+                pelo(a) requerente.
+              </p>
+              <p>
+                A certidão automática incluirá exclusivamente os processos em que
+                o(a) advogado(a) esteja formalmente registrado(a) na autuação, e{" "}
+                <strong className="text-foreground">não abrange os processos com publicidade restrita</strong>.
+              </p>
+              <p>
+                A autenticidade da certidão poderá ser aferida no serviço
+                "Validar certidão", disponível na{" "}
+                <Link to="/emitir-certidao" className="text-primary hover:underline font-medium">
+                  página de emissão
+                </Link>.
+              </p>
+            </div>
           </section>
 
-          {/* Important notice */}
+          {/* Certidões com parâmetros específicos */}
           <section className="mb-10 max-w-3xl">
             <div className="bg-warning/10 border border-warning/30 rounded p-5 flex items-start gap-3">
               <AlertCircle className="h-5 w-5 text-warning-foreground flex-shrink-0 mt-0.5" aria-hidden="true" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">Atenção</p>
-                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-                  A certidão comprova apenas a atuação registrada nos sistemas do
-                  TST. Processos físicos anteriores à implantação do PJe podem não
-                  constar automaticamente. Nesses casos, indique os números dos
-                  processos na solicitação para facilitar a pesquisa.
+              <div className="text-sm leading-relaxed">
+                <p className="font-semibold text-foreground mb-1">
+                  Certidões com parâmetros específicos
+                </p>
+                <p className="text-muted-foreground">
+                  Para certidões com parâmetros específicos (atuação em processo com
+                  publicidade restrita, período determinado, prática de ato em
+                  processo específico etc.), o(a) interessado(a) deverá preencher um{" "}
+                  <a
+                    href="https://www.tst.jus.br/portal-da-advocacia/certidoes/exercicio-advocacia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline font-medium inline-flex items-center gap-0.5"
+                  >
+                    formulário específico <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  </a>.
+                  Neste caso, a certidão não será expedida automaticamente, podendo
+                  estar sujeita ao recolhimento de emolumentos, conforme os itens XV,
+                  "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.
                 </p>
               </div>
             </div>
           </section>
 
+          {/* Normas */}
+          <section className="mb-10 max-w-3xl">
+            <h2 className="text-lg font-semibold text-foreground mb-4">
+              Normas que orientam este serviço
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://www.tst.jus.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  Instrução Normativa nº 20, de 7 de novembro de 2002
+                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.tst.jus.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-1"
+                >
+                  Ato Conjunto nº 21/TST.CSJT.GP.SG, de 7 de dezembro de 2010
+                  <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                </a>
+              </li>
+            </ul>
+          </section>
+
           {/* Help section */}
-          <div className="mb-12 max-w-3xl">
+          <div className="mb-10 max-w-3xl">
             <HelpAccordion items={helpItems} />
           </div>
 
@@ -250,17 +278,30 @@ const ExercicioAdvocacia = () => {
             aria-label="Informações de contato"
             className="mb-12 bg-card border border-border rounded p-5 max-w-3xl"
           >
-            <h2 className="text-sm font-semibold text-foreground mb-2">
-              Contato da SEGJUD
+            <h2 className="text-sm font-semibold text-foreground mb-3">
+              Contatos
             </h2>
-            <div className="space-y-1 text-sm text-muted-foreground">
-              <p>
-                E-mail:{" "}
-                <a href="mailto:segjud@tst.jus.br" className="text-primary hover:underline font-medium">
-                  segjud@tst.jus.br
-                </a>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                <span>Suporte Tecnológico: <strong className="text-foreground">(61) 3043-4040</strong></span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                <span>Suporte Jurídico: <strong className="text-foreground">(61) 3043-7280</strong> (9h às 18h)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                <span>
+                  E-mail:{" "}
+                  <a href="mailto:ccp@tst.jus.br" className="text-primary hover:underline font-medium">
+                    ccp@tst.jus.br
+                  </a>
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground pt-1">
+                Unidade responsável: Coordenadoria de Cadastramento Processual
               </p>
-              <p>Telefone: (61) 3043-3201</p>
             </div>
           </section>
         </div>
