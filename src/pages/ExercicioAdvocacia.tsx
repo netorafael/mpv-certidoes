@@ -149,17 +149,12 @@ const ExercicioAdvocacia = () => {
                   jurídica.
                 </p>
               </div>
-              <a
-                href="https://pje.tst.jus.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0"
-              >
+              <Link to="/emitir-certidao" className="flex-shrink-0">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
                   <Scale className="h-4 w-4" aria-hidden="true" />
-                  Solicitar pelo PJe
+                  Emitir Certidão
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
 
