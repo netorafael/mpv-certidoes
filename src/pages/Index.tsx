@@ -10,17 +10,17 @@ const certidoes = [
     title: "Certidão Negativa de Débitos Trabalhistas",
     description:
       "Comprova que uma pessoa ou empresa não possui débitos trabalhistas. Exigida em licitações e contratos públicos.",
-    href: "https://www.tst.jus.br/certidao-negativa-de-debitos-trabalhistas",
+    href: "/certidao-negativa-debitos",
     icon: <Shield className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
   {
     title: "Certidão de Indisponibilidade de Sistemas",
     description:
       "Atesta que os sistemas eletrônicos do TST ficaram indisponíveis em determinado período, justificando eventual atraso em prazos processuais.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/indisponibilidade",
+    href: "/indisponibilidade-sistemas",
     icon: <FileText className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
   {
     title: "Certidão Judicial de Exercício da Advocacia",
@@ -34,33 +34,33 @@ const certidoes = [
     title: "Certidão de Andamento Processual",
     description:
       "Informa a situação atual de um processo em tramitação no TST, incluindo as últimas movimentações.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/andamento-processual",
+    href: "/andamento-processual",
     icon: <Search className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
   {
     title: "Certidão de Distribuição de Feitos",
     description:
       "Informa se existe algum processo distribuído em nome de determinada parte no TST.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/distribuicao-feitos",
+    href: "/distribuicao-feitos",
     icon: <ClipboardList className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
   {
     title: "Certidão de Objeto e Pé",
     description:
       "Resume o assunto (objeto) e a fase atual (pé) de um processo trabalhista no TST.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/objeto-pe",
+    href: "/objeto-pe",
     icon: <FileCheck className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
   {
     title: "Demais Certidões Processuais",
     description:
       "Outros tipos de certidões disponíveis para processos em tramitação no Tribunal Superior do Trabalho.",
-    href: "https://www.tst.jus.br/portal-da-advocacia/certidoes/demais",
+    href: "/demais-certidoes",
     icon: <Files className="h-5 w-5 text-primary" />,
-    isExternal: true,
+    isExternal: false,
   },
 ];
 
