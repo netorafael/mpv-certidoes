@@ -7,12 +7,7 @@ const GovHeader = () => {
       <div className="bg-primary-dark py-1">
         <div className="container max-w-6xl mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img
-              src="https://www.gov.br/ds/assets/img/govbr-logo-small.png"
-              alt="Logo Gov.br"
-              className="h-4"
-              loading="lazy"
-            />
+            <span className="text-primary-foreground font-bold text-xs tracking-wide">GOV.BR</span>
             <span className="text-primary-foreground text-xs hidden sm:inline">
               Justiça do Trabalho
             </span>
