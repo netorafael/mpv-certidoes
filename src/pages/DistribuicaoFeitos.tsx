@@ -1,5 +1,4 @@
 import { ClipboardList, ExternalLink } from "lucide-react";
-import { Clock, FileText, AlertCircle } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -26,25 +25,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <ClipboardList className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Não automática — sujeita a análise",
-    },
-    {
-      icon: <FileText className="h-5 w-5 text-primary" />,
-      title: "Custo",
-      description: "Pode haver cobrança de emolumentos (IN nº 20/2002)",
-    },
-    {
-      icon: <AlertCircle className="h-5 w-5 text-warning-foreground" />,
-      title: "Importante",
-      description:
-        "A certidão em nome de pessoa física somente será emitida quando requerida pela própria pessoa ou por procurador com poderes específicos.",
-      variant: "warning",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a Certidão de Distribuição de Feitos?",
@@ -54,6 +34,16 @@ const config: CertidaoPageConfig = {
           que tramitam ou tramitaram no Tribunal Superior do Trabalho (TST), nos quais
           determinada pessoa física ou jurídica figure como parte.
         </p>
+      ),
+    },
+    {
+      question: "Qual o prazo de emissão e custo?",
+      answer: (
+        <div className="space-y-2">
+          <p>A emissão <strong>não é automática</strong> e está sujeita a análise pela unidade responsável.</p>
+          <p>Pode haver cobrança de emolumentos, conforme disposto nos itens XV, "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.</p>
+          <p><strong>Importante:</strong> A certidão em nome de pessoa física somente será emitida quando requerida pela própria pessoa ou por procurador com poderes específicos.</p>
+        </div>
       ),
     },
     {
@@ -75,16 +65,6 @@ const config: CertidaoPageConfig = {
             .
           </p>
         </div>
-      ),
-    },
-    {
-      question: "A certidão é emitida automaticamente?",
-      answer: (
-        <p>
-          <strong>Não.</strong> Esta certidão não é emitida automaticamente, podendo haver
-          cobrança de emolumentos, conforme disposto nos itens XV, "e", e XVI-A da
-          Instrução Normativa nº 20/2002 do TST.
-        </p>
       ),
     },
     {

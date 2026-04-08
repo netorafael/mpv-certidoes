@@ -1,5 +1,4 @@
 import { Shield, ExternalLink } from "lucide-react";
-import { Clock, CheckCircle, FileText, AlertCircle } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -21,31 +20,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <Shield className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Automática e imediata",
-    },
-    {
-      icon: <CheckCircle className="h-5 w-5 text-success" />,
-      title: "Custo",
-      description: "Gratuita",
-      variant: "success",
-    },
-    {
-      icon: <FileText className="h-5 w-5 text-primary" />,
-      title: "Validade",
-      description: "180 dias a partir da emissão",
-    },
-    {
-      icon: <AlertCircle className="h-5 w-5 text-warning-foreground" />,
-      title: "Importante",
-      description:
-        "A CNDT certifica a situação do interessado perante a Justiça do Trabalho quanto a débitos oriundos de decisões condenatórias transitadas em julgado.",
-      variant: "warning",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a CNDT?",
@@ -56,6 +30,16 @@ const config: CertidaoPageConfig = {
           <strong>Lei nº 12.440/2011</strong>, que acrescentou o Título VII-A à
           Consolidação das Leis do Trabalho (CLT).
         </p>
+      ),
+    },
+    {
+      question: "Qual o prazo de emissão, custo e validade?",
+      answer: (
+        <div className="space-y-2">
+          <p>A emissão é <strong>automática e imediata</strong>, totalmente <strong>gratuita</strong>.</p>
+          <p>A CNDT tem validade de <strong>180 dias</strong> a partir da data de emissão.</p>
+          <p>A CNDT certifica a situação do interessado perante a Justiça do Trabalho quanto a débitos oriundos de decisões condenatórias transitadas em julgado.</p>
+        </div>
       ),
     },
     {
@@ -75,30 +59,12 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Qual a validade da CNDT?",
-      answer: (
-        <p>
-          A CNDT tem validade de <strong>180 dias</strong>, contados da data de sua
-          emissão. Após esse prazo, é necessário emitir uma nova certidão.
-        </p>
-      ),
-    },
-    {
       question: "Quais débitos são verificados?",
       answer: (
         <p>
           A CNDT abrange os débitos oriundos de <strong>decisões condenatórias
           transitadas em julgado</strong> ou de <strong>acordos judiciais trabalhistas</strong>,
           incluindo as contribuições sociais e de terceiros deles decorrentes.
-        </p>
-      ),
-    },
-    {
-      question: "A certidão tem custo?",
-      answer: (
-        <p>
-          Não. A emissão da CNDT é <strong>totalmente gratuita</strong> e pode
-          ser realizada diretamente pela internet.
         </p>
       ),
     },

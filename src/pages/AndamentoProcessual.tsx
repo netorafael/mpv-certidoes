@@ -1,5 +1,4 @@
 import { Search, ExternalLink } from "lucide-react";
-import { Clock, CheckCircle, FileText, AlertCircle } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -22,24 +21,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <Search className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Automática e imediata",
-    },
-    {
-      icon: <CheckCircle className="h-5 w-5 text-success" />,
-      title: "Custo",
-      description: "Gratuita",
-      variant: "success",
-    },
-    {
-      icon: <FileText className="h-5 w-5 text-primary" />,
-      title: "Requisito",
-      description: "Número do processo no TST",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a Certidão de Andamento Processual?",
@@ -52,20 +33,20 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
+      question: "Qual o prazo de emissão e custo?",
+      answer: (
+        <p>
+          A emissão é <strong>automática e imediata</strong>, totalmente <strong>gratuita</strong>. O único requisito é informar o número do processo no TST.
+        </p>
+      ),
+    },
+    {
       question: "Quem pode solicitar?",
       answer: (
         <p>
           Qualquer pessoa pode solicitar a certidão de andamento processual, desde que
           informe o número do processo. <strong>Processos com publicidade restrita</strong> podem
           ter limitações de acesso.
-        </p>
-      ),
-    },
-    {
-      question: "A certidão tem custo?",
-      answer: (
-        <p>
-          A certidão de andamento processual emitida eletronicamente é <strong>gratuita</strong>.
         </p>
       ),
     },
