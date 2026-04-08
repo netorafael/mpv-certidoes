@@ -1,4 +1,4 @@
-import { ClipboardList, ExternalLink } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -27,83 +27,35 @@ const config: CertidaoPageConfig = {
   emissaoIcon: <ClipboardList className="h-4 w-4" aria-hidden="true" />,
   helpItems: [
     {
-      question: "O que é a Certidão de Distribuição de Feitos?",
+      question: "O que é?",
       answer: (
         <p>
-          A certidão de Distribuição de Feitos apresenta a <strong>relação dos processos</strong>{" "}
-          que tramitam ou tramitaram no Tribunal Superior do Trabalho (TST), nos quais
-          determinada pessoa física ou jurídica figure como parte.
+          Este documento mostra se existem processos atuais ou antigos no Tribunal Superior do Trabalho (TST) em nome de uma pessoa ou de uma empresa.
         </p>
       ),
     },
     {
-      question: "Qual o prazo de emissão e custo?",
-      answer: (
-        <div className="space-y-2">
-          <p>A emissão <strong>não é automática</strong> e está sujeita a análise pela unidade responsável.</p>
-          <p>Pode haver cobrança de emolumentos, conforme disposto nos itens XV, "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.</p>
-          <p><strong>Importante:</strong> A certidão em nome de pessoa física somente será emitida quando requerida pela própria pessoa ou por procurador com poderes específicos.</p>
-        </div>
-      ),
-    },
-    {
-      question: "Como solicitar esta certidão?",
-      answer: (
-        <div className="space-y-2">
-          <p>
-            Para solicitar a expedição da certidão, é necessário preencher o formulário
-            com os dados da parte. Alternativamente, a solicitação pode ser feita por meio
-            do{" "}
-            <a
-              href="https://www.tst.jus.br/formulario-solicitacao-de-certidao"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline font-medium"
-            >
-              formulário oficial do TST
-            </a>
-            .
-          </p>
-        </div>
-      ),
-    },
-    {
-      question: "Quem pode solicitar?",
+      question: "Como solicitar",
       answer: (
         <p>
-          A certidão em nome de <strong>pessoa física</strong> somente será emitida quando
-          requerida pela própria pessoa física ou por procurador com poderes específicos.
-          Certidões em nome de pessoa jurídica podem ser solicitadas por seus representantes legais.
+          A emissão da certidão não é automática. Para pedir, você deve preencher este formulário.
         </p>
       ),
     },
     {
-      question: "Quais normas orientam este serviço?",
+      question: "Custos",
       answer: (
-        <ul className="space-y-1.5">
-          <li>
-            <a
-              href="https://hdl.handle.net/20.500.12178/4216"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              Instrução Normativa nº 20, de 7 de novembro de 2002
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://hdl.handle.net/20.500.12178/10377"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              Ato Conjunto nº 21/TST.CSJT.GP.SG, de 7 de dezembro de 2010
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
-            </a>
-          </li>
-        </ul>
+        <p>
+          Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).
+        </p>
+      ),
+    },
+    {
+      question: "Atenção: Pedidos para Pessoas Físicas",
+      answer: (
+        <p>
+          Se a certidão for para uma pessoa física (CPF), apenas ela mesma ou um representante legal com procuração pode fazer o pedido.
+        </p>
       ),
     },
   ],

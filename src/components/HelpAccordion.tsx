@@ -24,17 +24,17 @@ const HelpAccordion = ({ items, title = "Dúvidas frequentes" }: HelpAccordionPr
       >
         {title}
       </h2>
-      <Accordion type="single" collapsible className="border border-border rounded overflow-hidden">
+      <Accordion type="single" collapsible className="space-y-0 divide-y divide-border border-t border-b border-border">
         {items.map((item, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="border-b border-border last:border-b-0"
+            className="border-b-0"
           >
-            <AccordionTrigger className="px-5 py-4 text-sm font-medium text-foreground hover:bg-muted/50 hover:no-underline text-left [&[data-state=open]]:bg-muted/30">
+            <AccordionTrigger className="py-4 text-base font-bold text-foreground hover:no-underline text-left [&[data-state=open]]:text-primary">
               {item.question}
             </AccordionTrigger>
-            <AccordionContent className="px-5 pb-4 pt-2 text-sm text-muted-foreground leading-relaxed">
+            <AccordionContent className="pb-4 pt-0 text-sm text-muted-foreground leading-relaxed">
               {item.answer}
             </AccordionContent>
           </AccordionItem>
