@@ -1,4 +1,4 @@
-import { Search, ExternalLink } from "lucide-react";
+import { Search } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -23,60 +23,36 @@ const config: CertidaoPageConfig = {
   emissaoIcon: <Search className="h-4 w-4" aria-hidden="true" />,
   helpItems: [
     {
-      question: "O que é a Certidão de Andamento Processual?",
+      question: "O que é?",
       answer: (
         <p>
-          A certidão de andamento processual informa a <strong>situação atual</strong> de um
-          processo em tramitação no Tribunal Superior do Trabalho, incluindo as últimas
-          movimentações e o status processual.
+          Este documento apresenta um resumo do que está acontecendo ou do que já aconteceu com um processo no Tribunal Superior do Trabalho (TST). Ele inclui processos atuais, arquivados ou que já voltaram para o Tribunal Regional do Trabalho (TRT).
         </p>
       ),
     },
     {
-      question: "Qual o prazo de emissão e custo?",
+      question: "Como solicitar",
+      answer: (
+        <div className="space-y-2">
+          <p>Para gerar a certidão, basta informar o número do processo no campo ao lado.</p>
+          <p>Para confirmar se a certidão é verdadeira: Utilize o serviço "Validar certidão".</p>
+        </div>
+      ),
+    },
+    {
+      question: "Custos",
       answer: (
         <p>
-          A emissão é <strong>automática e imediata</strong>, totalmente <strong>gratuita</strong>. O único requisito é informar o número do processo no TST.
+          Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).
         </p>
       ),
     },
     {
-      question: "Quem pode solicitar?",
+      question: "Atenção: Processos com Sigilo (Restritos)",
       answer: (
         <p>
-          Qualquer pessoa pode solicitar a certidão de andamento processual, desde que
-          informe o número do processo. <strong>Processos com publicidade restrita</strong> podem
-          ter limitações de acesso.
+          Se o processo tiver restrição de publicidade (segredo de justiça), a certidão não sairá na hora. Nestes casos, você deve preencher este formulário para pedir o documento. Para este pedido, pode haver cobrança de taxas (emolumentos).
         </p>
-      ),
-    },
-    {
-      question: "Quais normas orientam este serviço?",
-      answer: (
-        <ul className="space-y-1.5">
-          <li>
-            <a
-              href="https://hdl.handle.net/20.500.12178/4216"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              Instrução Normativa nº 20, de 7 de novembro de 2002
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://hdl.handle.net/20.500.12178/10377"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline inline-flex items-center gap-1"
-            >
-              Ato Conjunto nº 21/TST.CSJT.GP.SG, de 7 de dezembro de 2010
-              <ExternalLink className="h-3 w-3" aria-hidden="true" />
-            </a>
-          </li>
-        </ul>
       ),
     },
   ],
