@@ -1,5 +1,4 @@
 import { Scale, ExternalLink } from "lucide-react";
-import { Clock, CheckCircle, FileText, AlertCircle } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -22,31 +21,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <Scale className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Automática e imediata",
-    },
-    {
-      icon: <CheckCircle className="h-5 w-5 text-success" />,
-      title: "Custo",
-      description: "Gratuita (certidão automática)",
-      variant: "success",
-    },
-    {
-      icon: <FileText className="h-5 w-5 text-primary" />,
-      title: "Requisito",
-      description: "Apenas o CPF do(a) advogado(a)",
-    },
-    {
-      icon: <AlertCircle className="h-5 w-5 text-warning-foreground" />,
-      title: "Parâmetros específicos",
-      description:
-        "Para certidões especiais (publicidade restrita, período determinado etc.), preencha o formulário específico no site do TST.",
-      variant: "warning",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a Certidão de Exercício da Advocacia?",
@@ -57,6 +31,15 @@ const config: CertidaoPageConfig = {
           <strong>andamento, arquivados ou devolvidos</strong> aos Tribunais
           Regionais do Trabalho (TRTs) de origem.
         </p>
+      ),
+    },
+    {
+      question: "Qual o prazo e custo de emissão?",
+      answer: (
+        <div className="space-y-2">
+          <p>A emissão é <strong>automática e imediata</strong>. O único requisito é o CPF do(a) advogado(a).</p>
+          <p>A certidão automática (emitida por CPF) é <strong>gratuita</strong>. Certidões com parâmetros específicos podem estar sujeitas ao recolhimento de emolumentos, conforme a Instrução Normativa nº 20/2002 do TST.</p>
+        </div>
       ),
     },
     {
@@ -110,20 +93,6 @@ const config: CertidaoPageConfig = {
             Neste caso, a certidão <strong>não será expedida automaticamente</strong>{" "}
             e poderá estar sujeita ao recolhimento de emolumentos, conforme os itens
             XV, "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.
-          </p>
-        </div>
-      ),
-    },
-    {
-      question: "A certidão tem custo?",
-      answer: (
-        <div className="space-y-2">
-          <p>
-            A certidão automática (emitida por CPF) é <strong>gratuita</strong>.
-          </p>
-          <p>
-            Certidões com parâmetros específicos podem estar sujeitas ao
-            recolhimento de emolumentos, conforme a Instrução Normativa nº 20/2002 do TST.
           </p>
         </div>
       ),

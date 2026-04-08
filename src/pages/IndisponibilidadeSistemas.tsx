@@ -1,5 +1,4 @@
-import { FileText, ExternalLink } from "lucide-react";
-import { Clock, CheckCircle, AlertCircle } from "lucide-react";
+import { FileText } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -34,25 +33,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <FileText className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Automática e imediata",
-    },
-    {
-      icon: <CheckCircle className="h-5 w-5 text-success" />,
-      title: "Custo",
-      description: "Gratuita",
-      variant: "success",
-    },
-    {
-      icon: <AlertCircle className="h-5 w-5 text-warning-foreground" />,
-      title: "Sistemas cobertos",
-      description: "PJe TST, e-Doc, DEJT, CNDT, SEI, Simba, Visualização de Autos",
-      variant: "warning",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a Certidão de Indisponibilidade de Sistemas?",
@@ -61,6 +41,14 @@ const config: CertidaoPageConfig = {
           É um documento que comprova a <strong>indisponibilidade de sistemas eletrônicos</strong>{" "}
           do Tribunal Superior do Trabalho em um período específico. Pode ser usada para
           justificar eventual atraso no cumprimento de prazos processuais.
+        </p>
+      ),
+    },
+    {
+      question: "Qual o prazo de emissão e custo?",
+      answer: (
+        <p>
+          A emissão é <strong>automática e imediata</strong>, totalmente <strong>gratuita</strong>. Os sistemas cobertos incluem: PJe TST, e-Doc, DEJT, CNDT, SEI, Simba e Visualização de Autos.
         </p>
       ),
     },

@@ -1,5 +1,4 @@
 import { FileCheck, ExternalLink } from "lucide-react";
-import { Clock, FileText, AlertCircle } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -21,25 +20,6 @@ const config: CertidaoPageConfig = {
     },
   ],
   emissaoIcon: <FileCheck className="h-4 w-4" aria-hidden="true" />,
-  infoCards: [
-    {
-      icon: <Clock className="h-5 w-5 text-primary" />,
-      title: "Emissão",
-      description: "Não automática — requer petição ao processo",
-    },
-    {
-      icon: <FileText className="h-5 w-5 text-primary" />,
-      title: "Custo",
-      description: "Pode haver cobrança de emolumentos (IN nº 20/2002)",
-    },
-    {
-      icon: <AlertCircle className="h-5 w-5 text-warning-foreground" />,
-      title: "Procedimento",
-      description:
-        "A certidão deve ser solicitada por meio de petição dirigida ao processo correspondente, via e-Doc ou PJe.",
-      variant: "warning",
-    },
-  ],
   helpItems: [
     {
       question: "O que é a Certidão de Objeto e Pé?",
@@ -49,6 +29,16 @@ const config: CertidaoPageConfig = {
           <strong>objeto</strong> (assunto, matéria discutida) e o{" "}
           <strong>andamento</strong> (pé, fase atual) de um processo trabalhista no TST.
         </p>
+      ),
+    },
+    {
+      question: "Qual o prazo de emissão e custo?",
+      answer: (
+        <div className="space-y-2">
+          <p>A emissão <strong>não é automática</strong> e requer petição ao processo correspondente.</p>
+          <p>Pode haver cobrança de emolumentos, conforme disposto nos itens XV, "e", e XVI-A da Instrução Normativa nº 20/2002 do TST.</p>
+          <p><strong>Procedimento:</strong> A certidão deve ser solicitada por meio de petição dirigida ao processo correspondente, via e-Doc ou PJe.</p>
+        </div>
       ),
     },
     {
@@ -92,16 +82,6 @@ const config: CertidaoPageConfig = {
         <p>
           Caso o processo já tenha sido baixado, o requerimento deve ser dirigido ao{" "}
           <strong>Tribunal Regional do Trabalho (TRT) de origem</strong>.
-        </p>
-      ),
-    },
-    {
-      question: "A certidão é emitida automaticamente?",
-      answer: (
-        <p>
-          <strong>Não.</strong> Esta certidão não é emitida automaticamente, podendo estar
-          sujeita ao recolhimento de emolumentos, conforme disposto nos itens XV, "e",
-          e XVI-A da Instrução Normativa nº 20/2002 do TST.
         </p>
       ),
     },
