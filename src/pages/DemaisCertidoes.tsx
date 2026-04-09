@@ -1,30 +1,16 @@
-import { Files } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
   breadcrumbItems: [
     { label: "Serviços", href: "https://www.tst.jus.br/servicos" },
     { label: "Certidões", href: "/" },
-    { label: "Demais Certidões Processuais" },
+    { label: "Outras Certidões de Processos" },
   ],
-  titulo: "Demais Certidões Processuais",
+  titulo: "Outras Certidões de Processos",
   subtitulo:
-    "Requerimento de certidões processuais que não se enquadrem nas outras opções disponíveis no sistema.",
+    "Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.",
   descricaoEmissao:
-    "Preencha os dados abaixo para solicitar a certidão processual desejada.",
-  campos: [
-    {
-      id: "numero-processo",
-      label: "Número do processo",
-      placeholder: "0000000-00.0000.0.00.0000",
-    },
-    {
-      id: "tipo-certidao",
-      label: "Tipo de certidão solicitada",
-      placeholder: "Descreva brevemente o tipo de certidão desejada",
-    },
-  ],
-  emissaoIcon: <Files className="h-4 w-4" aria-hidden="true" />,
+    "Para solicitar outras certidões processuais, preencha o formulário eletrônico disponível no link abaixo.",
   helpItems: [
     {
       question: "O que é?",
@@ -38,7 +24,16 @@ const config: CertidaoPageConfig = {
       question: "Como solicitar",
       answer: (
         <p>
-          A emissão do documento não é automática. Para pedir a certidão, você deve preencher este formulário.
+          A emissão do documento não é automática. Para pedir a certidão, você deve preencher{" "}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe1_IpKfShLalyhNVFlBR7iSoOvRDGIaq5SPU14pwMACjAUFw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline font-bold"
+          >
+            este formulário
+          </a>
+          .
         </p>
       ),
     },
@@ -57,6 +52,7 @@ const config: CertidaoPageConfig = {
     email: "ccp@tst.jus.br",
     unidadeResponsavel: "Coordenadoria de Cadastramento Processual",
   },
+  showValidation: false,
 };
 
 const DemaisCertidoes = () => <CertidaoPageTemplate config={config} />;

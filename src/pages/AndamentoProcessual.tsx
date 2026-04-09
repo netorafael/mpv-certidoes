@@ -48,10 +48,19 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Atenção: Processos com Sigilo (Restritos)",
+      question: "Atenção",
       answer: (
         <p>
-          Se o processo tiver restrição de publicidade (segredo de justiça), a certidão não sairá na hora. Nestes casos, você deve preencher este formulário para pedir o documento. Para este pedido, pode haver cobrança de taxas (emolumentos).
+          Se o processo tiver restrição de publicidade (segredo de justiça), a certidão não sairá na hora. Nestes casos, você deve preencher{" "}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe1_IpKfShLalyhNVFlBR7iSoOvRDGIaq5SPU14pwMACjAUFw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline font-bold"
+          >
+            este formulário
+          </a>{" "}
+          para pedir o documento. Para este pedido, pode haver cobrança de taxas (emolumentos).
         </p>
       ),
     },
