@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 export interface HelpItem {
   question: string;
@@ -13,28 +14,29 @@ export interface HelpItem {
 interface HelpAccordionProps {
   items: HelpItem[];
   title?: string;
+  className?: string;
 }
 
-const HelpAccordion = ({ items, title = "Dúvidas frequentes" }: HelpAccordionProps) => {
+const HelpAccordion = ({ items, title = "Dúvidas frequentes", className }: HelpAccordionProps) => {
   return (
-    <section aria-labelledby="help-section-title">
+    <section aria-labelledby="help-section-title" className={cn("py-8", className)}>
       <h2
         id="help-section-title"
-        className="text-lg font-semibold text-foreground mb-4"
+        className="text-2xl font-bold text-primary mb-6"
       >
         {title}
       </h2>
-      <Accordion type="single" collapsible className="space-y-0 divide-y divide-border border-t border-b border-border">
+      <Accordion type="single" collapsible className="w-full space-y-2">
         {items.map((item, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="border-b-0"
+            className="border-none"
           >
-            <AccordionTrigger className="py-4 text-base font-bold text-foreground hover:no-underline text-left [&[data-state=open]]:text-primary">
+            <AccordionTrigger className="py-3 text-lg font-bold text-primary hover:no-underline text-left flex flex-row-reverse justify-end gap-3 [&[data-state=open]>svg]:rotate-180 transition-all">
               {item.question}
             </AccordionTrigger>
-            <AccordionContent className="pb-4 pt-0 text-sm text-muted-foreground leading-relaxed">
+            <AccordionContent className="pb-6 pt-2 text-base text-muted-foreground leading-relaxed pl-7">
               {item.answer}
             </AccordionContent>
           </AccordionItem>

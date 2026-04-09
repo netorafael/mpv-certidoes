@@ -1,4 +1,3 @@
-import { ClipboardList } from "lucide-react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
 
 const config: CertidaoPageConfig = {
@@ -8,55 +7,28 @@ const config: CertidaoPageConfig = {
     { label: "Distribuição de Feitos" },
   ],
   titulo: "Certidão de Distribuição de Feitos",
-  subtitulo:
-    "Apresenta a relação dos processos que tramitam ou tramitaram no TST, nos quais determinada pessoa física ou jurídica figure como parte.",
-  descricaoEmissao:
-    "Informe o CPF ou CNPJ da parte para solicitar a certidão de distribuição de feitos.",
-  campos: [
-    {
-      id: "cpf-cnpj",
-      label: "CPF ou CNPJ da parte",
-      placeholder: "000.000.000-00 ou 00.000.000/0000-00",
-    },
-    {
-      id: "nome-parte",
-      label: "Nome da parte",
-      placeholder: "Nome completo da pessoa física ou jurídica",
-    },
-  ],
-  emissaoIcon: <ClipboardList className="h-4 w-4" aria-hidden="true" />,
+  subtitulo: "Apresenta a relação dos processos que tramitam ou tramitaram no TST, nos quais determinada pessoa física ou jurídica figure como parte.",
+  descricaoEmissao: "A emissão da certidão não é automática. Para solicitar, você deve preencher o formulário eletrônico disponível no link abaixo.",
   helpItems: [
     {
       question: "O que é?",
-      answer: (
-        <p>
-          Este documento mostra se existem processos atuais ou antigos no Tribunal Superior do Trabalho (TST) em nome de uma pessoa ou de uma empresa.
-        </p>
-      ),
+      answer: <p>Este documento mostra se existem processos atuais ou antigos no Tribunal Superior do Trabalho (TST) em nome de uma pessoa ou de uma empresa.</p>,
     },
     {
       question: "Como solicitar",
       answer: (
-        <p>
-          A emissão da certidão não é automática. Para pedir, você deve preencher este formulário.
+        <p>A emissão da certidão não é automática. Para pedir, você deve preencher{" "}
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1_IpKfShLalyhNVFlBR7iSoOvRDGIaq5SPU14pwMACjAUFw/viewform" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">este formulário</a>.
         </p>
       ),
     },
     {
       question: "Custos",
-      answer: (
-        <p>
-          Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).
-        </p>
-      ),
+      answer: <p>Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).</p>,
     },
     {
-      question: "Atenção: Pedidos para Pessoas Físicas",
-      answer: (
-        <p>
-          Se a certidão for para uma pessoa física (CPF), apenas ela mesma ou um representante legal com procuração pode fazer o pedido.
-        </p>
-      ),
+      question: "Atenção",
+      answer: <p>Se a certidão for para uma pessoa física (CPF), apenas ela mesma ou um representante legal com procuração pode fazer o pedido.</p>,
     },
   ],
   contato: {
@@ -65,6 +37,7 @@ const config: CertidaoPageConfig = {
     email: "segjud@tst.jus.br",
     unidadeResponsavel: "Secretaria-Geral Judiciária (SEGJUD)",
   },
+  showValidation: false,
 };
 
 const DistribuicaoFeitos = () => <CertidaoPageTemplate config={config} />;
