@@ -7,43 +7,24 @@ const config: CertidaoPageConfig = {
     { label: "Outras Certidões de Processos" },
   ],
   titulo: "Outras Certidões de Processos",
-  subtitulo:
-    "Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.",
-  descricaoEmissao:
-    "Para solicitar outras certidões processuais, preencha o formulário eletrônico disponível no link abaixo.",
+  subtitulo: "Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.",
+  descricaoEmissao: "Para solicitar outras certidões processuais, preencha o formulário eletrônico disponível no link abaixo.",
   helpItems: [
     {
       question: "O que é?",
-      answer: (
-        <p>
-          Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.
-        </p>
-      ),
+      answer: <p>Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.</p>,
     },
     {
       question: "Como solicitar",
       answer: (
-        <p>
-          A emissão do documento não é automática. Para pedir a certidão, você deve preencher{" "}
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe1_IpKfShLalyhNVFlBR7iSoOvRDGIaq5SPU14pwMACjAUFw/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline font-bold"
-          >
-            este formulário
-          </a>
-          .
+        <p>A emissão do documento não é automática. Para pedir a certidão, você deve preencher{" "}
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1_IpKfShLalyhNVFlBR7iSoOvRDGIaq5SPU14pwMACjAUFw/viewform" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">este formulário</a>.
         </p>
       ),
     },
     {
       question: "Custos",
-      answer: (
-        <p>
-          Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).
-        </p>
-      ),
+      answer: <p>Pode haver cobrança de taxas (emolumentos), conforme as normas do Tribunal Superior do Trabalho (TST).</p>,
     },
   ],
   contato: {
