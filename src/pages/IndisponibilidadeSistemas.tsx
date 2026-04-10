@@ -1,4 +1,73 @@
+import { useState } from "react";
 import CertidaoPageTemplate, { type CertidaoPageConfig } from "@/components/CertidaoPageTemplate";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+const sistemas = [
+  "PJe TST",
+  "Visualização de Autos",
+  "DEJT",
+  "SEI",
+  "CNDT",
+  "eDOC",
+  "Simba",
+];
+
+const IndisponibilidadeForm = () => {
+  const [sistema, setSistema] = useState("");
+  const [dataInicio, setDataInicio] = useState("");
+  const [dataFim, setDataFim] = useState("");
+
+  return (
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label className="text-sm font-medium">
+          Sistema <span className="text-destructive">*</span>
+        </Label>
+        <RadioGroup value={sistema} onValueChange={setSistema} className="grid grid-cols-2 gap-2">
+          {sistemas.map((s) => (
+            <div key={s} className="flex items-center gap-2">
+              <RadioGroupItem value={s} id={`sistema-${s}`} />
+              <Label htmlFor={`sistema-${s}`} className="text-sm font-normal cursor-pointer">
+                {s}
+              </Label>
+            </div>
+          ))}
+        </RadioGroup>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 max-w-xs">
+        <div className="space-y-1.5">
+          <Label htmlFor="data-inicio" className="text-sm">
+            Data início <span className="text-destructive">*</span>
+          </Label>
+          <Input
+            id="data-inicio"
+            type="date"
+            value={dataInicio}
+            onChange={(e) => setDataInicio(e.target.value)}
+            required
+            className="text-sm"
+          />
+        </div>
+        <div className="space-y-1.5">
+          <Label htmlFor="data-fim" className="text-sm">
+            Data fim <span className="text-destructive">*</span>
+          </Label>
+          <Input
+            id="data-fim"
+            type="date"
+            value={dataFim}
+            onChange={(e) => setDataFim(e.target.value)}
+            required
+            className="text-sm"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const config: CertidaoPageConfig = {
   breadcrumbItems: [
@@ -10,6 +79,7 @@ const config: CertidaoPageConfig = {
   titulo: "Certidão de Indisponibilidade de Sistemas",
   subtitulo: "Atesta que os sistemas eletrônicos do TST ficaram indisponíveis em determinado período, justificando eventual atraso em prazos processuais.",
   descricaoEmissao: "A emissão da certidão de indisponibilidade é automática e imediata. Selecione o sistema e o período desejado para gerar o documento.",
+  customFormContent: <IndisponibilidadeForm />,
   helpItems: [
     {
       question: "O que é?",

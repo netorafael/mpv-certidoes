@@ -47,7 +47,7 @@ const CertidaoPageTemplate = ({ config }: { config: CertidaoPageConfig }) => {
   const [recaptchaEmitir, setRecaptchaEmitir] = useState(false);
   const [recaptchaValidar, setRecaptchaValidar] = useState(false);
 
-  const hasFields = config.campos && config.campos.length > 0;
+  const hasFields = (config.campos && config.campos.length > 0) || !!config.customFormContent;
   const showValidation = config.showValidation !== false;
   const showTabs = hasFields || showValidation;
 
@@ -162,6 +162,8 @@ const CertidaoPageTemplate = ({ config }: { config: CertidaoPageConfig }) => {
                               />
                             </div>
                           ))}
+
+                          {config.customFormContent}
 
                           {/* reCAPTCHA */}
                           <div className="border border-border rounded p-4 bg-muted/30 max-w-xs">
