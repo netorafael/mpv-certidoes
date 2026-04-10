@@ -232,9 +232,8 @@ const CertidaoPageTemplate = ({ config }: { config: CertidaoPageConfig }) => {
                     {autenticada === null ? (
                       <form onSubmit={handleAutenticar}>
                         <div className="bg-card border border-border rounded p-6 space-y-4">
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            Se você possui uma certidão e deseja validar, insira o
-                            código de autenticidade da certidão.
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                            Se você possui uma certidão e deseja validar, insira o código da certidão.
                           </p>
 
                           <div className="space-y-1.5">
