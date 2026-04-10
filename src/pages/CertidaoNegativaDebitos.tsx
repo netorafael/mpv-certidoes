@@ -9,9 +9,9 @@ const config: CertidaoPageConfig = {
   ],
   titulo: "Certidão Negativa de Débitos Trabalhistas (CNDT)",
   subtitulo: "Comprova a inexistência de débitos trabalhistas em nome de pessoa física ou jurídica. Exigida para participação em licitações e contratos com a Administração Pública (Lei nº 12.440/2011).",
-  descricaoEmissao: "Informe o CPF ou CNPJ para gerar a Certidão Negativa de Débitos Trabalhistas.",
+  descricaoEmissao: "Informe o CNPJ para gerar a Certidão Negativa de Débitos Trabalhistas.",
   campos: [
-    { id: "cpf-cnpj", label: "CPF ou CNPJ", placeholder: "000.000.000-00 ou 00.000.000/0000-00" },
+    { id: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00" },
   ],
   emissaoIcon: <Shield className="h-4 w-4" aria-hidden="true" />,
   helpItems: [
