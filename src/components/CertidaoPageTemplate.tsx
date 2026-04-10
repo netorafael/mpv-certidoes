@@ -246,7 +246,7 @@ const CertidaoPageTemplate = ({ config }: { config: CertidaoPageConfig }) => {
                               id="codigo-auth"
                               value={codigoAutenticacao}
                               onChange={(e) => setCodigoAutenticacao(e.target.value)}
-                              placeholder="Informe o código da certidão"
+                              placeholder="Informe o código de autenticidade"
                               required
                               aria-required="true"
                               className="text-sm"
