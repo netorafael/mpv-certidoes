@@ -32,6 +32,7 @@ export interface CertidaoPageConfig {
   subtitulo: string;
   descricaoEmissao?: string;
   campos?: CertidaoField[];
+  customFormContent?: React.ReactNode;
   helpItems: HelpItem[];
   contato: ContactInfo;
   emissaoIcon?: React.ReactNode;
