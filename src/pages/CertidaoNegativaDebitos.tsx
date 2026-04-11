@@ -8,7 +8,8 @@ const config: CertidaoPageConfig = {
     { label: "Certidão Negativa de Débitos Trabalhistas" },
   ],
   titulo: "Certidão Negativa de Débitos Trabalhistas (CNDT)",
-  subtitulo: "Comprova a inexistência de débitos trabalhistas em nome de pessoa física ou jurídica. Exigida para participação em licitações e contratos com a Administração Pública (Lei nº 12.440/2011). Também conhecida como: CNDT, certidão de regularidade trabalhista, certidão trabalhista para licitação, comprovante de inexistência de débitos trabalhistas.",
+  subtitulo: "Comprova a inexistência de débitos trabalhistas em nome de pessoa física ou jurídica. Exigida para participação em licitações e contratos com a Administração Pública (Lei nº 12.440/2011).",
+  tags: ["CNDT", "Certidão de Regularidade Trabalhista", "Certidão Trabalhista para Licitação", "Comprovante de Inexistência de Débitos Trabalhistas"],
   descricaoEmissao: "Informe o CNPJ para gerar a Certidão Negativa de Débitos Trabalhistas.",
   campos: [
     { id: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00" },
