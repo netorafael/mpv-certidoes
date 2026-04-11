@@ -29,7 +29,7 @@ export interface ContactInfo {
 export interface CertidaoPageConfig {
   breadcrumbItems: { label: string; href?: string }[];
   titulo: string;
-  subtitulo: string;
+  subtitulo?: string;
   tags?: string[];
   descricaoEmissao?: string;
   campos?: CertidaoField[];
