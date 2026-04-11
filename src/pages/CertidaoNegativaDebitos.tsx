@@ -8,7 +8,7 @@ const config: CertidaoPageConfig = {
     { label: "Certidão Negativa de Débitos Trabalhistas" },
   ],
   titulo: "Certidão Negativa de Débitos Trabalhistas (CNDT)",
-  subtitulo: "Comprova a inexistência de débitos trabalhistas em nome de pessoa física ou jurídica. Exigida para participação em licitações e contratos com a Administração Pública (Lei nº 12.440/2011).",
+  subtitulo: "Comprova a inexistência de débitos trabalhistas em nome de pessoa física ou jurídica. Exigida para participação em licitações e contratos com a Administração Pública (Lei nº 12.440/2011). Também conhecida como: CNDT, certidão de regularidade trabalhista, certidão trabalhista para licitação, comprovante de inexistência de débitos trabalhistas.",
   descricaoEmissao: "Informe o CNPJ para gerar a Certidão Negativa de Débitos Trabalhistas.",
   campos: [
     { id: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00" },
@@ -25,24 +25,27 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Como solicitar",
+      question: "Quem pode utilizar esse serviço?",
+      answer: (
+        <p>Qualquer pessoa física ou jurídica pode consultar e emitir a CNDT gratuitamente, bastando informar o CNPJ.</p>
+      ),
+    },
+    {
+      question: "Etapas para realização deste serviço",
       answer: (
         <div className="space-y-2">
           <p>A emissão é <strong>automática e imediata</strong> através do formulário ao lado.</p>
-          <p>Basta informar o CPF ou CNPJ para gerar o documento.</p>
+          <p>Basta informar o CNPJ para gerar o documento.</p>
         </div>
       ),
     },
     {
-      question: "Custos",
-      answer: <p>A emissão da CNDT é <strong>totalmente gratuita</strong>.</p>,
-    },
-    {
-      question: "Atenção",
+      question: "Outras informações",
       answer: (
         <div className="space-y-2">
           <p>A CNDT tem validade de <strong>180 dias</strong> a partir da data de emissão.</p>
           <p>A certidão abrange débitos de decisões condenatórias transitadas em julgado ou acordos judiciais trabalhistas não cumpridos.</p>
+          <p>A emissão da CNDT é <strong>totalmente gratuita</strong>.</p>
           <p>Para validar a autenticidade de uma certidão já emitida, utilize a aba "Validar certidão".</p>
         </div>
       ),

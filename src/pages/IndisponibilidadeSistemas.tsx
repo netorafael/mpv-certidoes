@@ -77,7 +77,7 @@ const config: CertidaoPageConfig = {
     { label: "Indisponibilidade de Sistemas" },
   ],
   titulo: "Certidão de Indisponibilidade de Sistemas",
-  subtitulo: "Atesta que os sistemas eletrônicos do TST ficaram indisponíveis em determinado período, justificando eventual atraso em prazos processuais.",
+  subtitulo: "Atesta que os sistemas eletrônicos do TST ficaram indisponíveis em determinado período, justificando eventual atraso em prazos processuais. Também conhecida como: certidão de instabilidade do sistema, comprovante de queda do PJe, atestado de indisponibilidade, certidão de sistema fora do ar.",
   descricaoEmissao: "A emissão da certidão de indisponibilidade é automática e imediata. Selecione o sistema e o período desejado para gerar o documento.",
   customFormContent: <IndisponibilidadeForm />,
   helpItems: [
@@ -86,19 +86,20 @@ const config: CertidaoPageConfig = {
       answer: <p>É um documento que comprova a <strong>indisponibilidade de sistemas eletrônicos</strong> do Tribunal Superior do Trabalho em um período específico. Pode ser usada para justificar eventual atraso no cumprimento de prazos processuais.</p>,
     },
     {
-      question: "Como solicitar",
+      question: "Quem pode utilizar esse serviço?",
+      answer: <p>Qualquer advogado(a) ou parte interessada que precise comprovar a indisponibilidade dos sistemas do TST para justificar o cumprimento de prazos processuais.</p>,
+    },
+    {
+      question: "Etapas para realização deste serviço",
       answer: <p>A emissão é <strong>automática e imediata</strong>. Basta informar o sistema e o período desejado no formulário ao lado.</p>,
     },
     {
-      question: "Custos",
-      answer: <p>A certidão de indisponibilidade é <strong>totalmente gratuita</strong>.</p>,
-    },
-    {
-      question: "Atenção",
+      question: "Outras informações",
       answer: (
         <div className="space-y-2">
           <p>A certidão cobre sistemas como PJe TST, Visualização de Autos, DEJT, SEI, CNDT, e-Doc e Simba.</p>
           <p>Ela deve ser utilizada como documento comprobatório junto aos processos no TST para justificar o não cumprimento de prazo.</p>
+          <p>A certidão de indisponibilidade é <strong>totalmente gratuita</strong>.</p>
         </div>
       ),
     },
