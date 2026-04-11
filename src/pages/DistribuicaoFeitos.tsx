@@ -7,7 +7,7 @@ const config: CertidaoPageConfig = {
     { label: "Distribuição de Feitos" },
   ],
   titulo: "Certidão de Distribuição de Feitos",
-  subtitulo: "Apresenta a relação dos processos que tramitam ou tramitaram no TST, nos quais determinada pessoa física ou jurídica figure como parte.",
+  
   tags: ["Certidão de Ações Trabalhistas", "Certidão de Existência de Processos", "Certidão Nada Consta Trabalhista"],
   descricaoEmissao: "A emissão da certidão não é automática. Para solicitar, você deve preencher o formulário eletrônico disponível no link abaixo.",
   helpItems: [
