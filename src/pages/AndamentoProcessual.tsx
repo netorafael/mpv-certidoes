@@ -9,7 +9,7 @@ const config: CertidaoPageConfig = {
     { label: "Andamento Processual" },
   ],
   titulo: "Certidão de Andamento Processual",
-  subtitulo: "Informa a situação atual de um processo em tramitação no TST, incluindo as últimas movimentações processuais.",
+  
   tags: ["Certidão de Tramitação", "Certidão de Movimentação Processual", "Certidão de Fase Processual", "Consulta Processual"],
   descricaoEmissao: "Informe o número do processo para gerar a certidão de andamento processual.",
   campos: [{ id: "numero-processo", label: "Número do processo", placeholder: "0000000-00.0000.0.00.0000" }],

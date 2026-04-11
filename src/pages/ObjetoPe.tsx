@@ -7,7 +7,7 @@ const config: CertidaoPageConfig = {
     { label: "Objeto e Pé" },
   ],
   titulo: "Certidão de Objeto e Pé",
-  subtitulo: "Fornece informações detalhadas sobre o objeto (assunto) e o andamento (pé) de um processo trabalhista no TST.",
+  
   tags: ["Certidão de Inteiro Teor", "Certidão sobre o Estado do Processo", "Certidão de Situação Processual"],
   descricaoEmissao: "A Certidão de Objeto e Pé deve ser solicitada por meio de petição dirigida ao processo correspondente, via e-Doc ou PJe.",
   helpItems: [

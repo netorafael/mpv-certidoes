@@ -77,7 +77,7 @@ const config: CertidaoPageConfig = {
     { label: "Indisponibilidade de Sistemas" },
   ],
   titulo: "Certidão de Indisponibilidade de Sistemas",
-  subtitulo: "Atesta que os sistemas eletrônicos do TST ficaram indisponíveis em determinado período, justificando eventual atraso em prazos processuais.",
+  
   tags: ["Certidão de Instabilidade do Sistema", "Comprovante de Queda do PJe", "Atestado de Indisponibilidade", "Certidão de Sistema Fora do Ar"],
   descricaoEmissao: "A emissão da certidão de indisponibilidade é automática e imediata. Selecione o sistema e o período desejado para gerar o documento.",
   customFormContent: <IndisponibilidadeForm />,

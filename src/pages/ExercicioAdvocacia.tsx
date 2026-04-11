@@ -9,7 +9,7 @@ const config: CertidaoPageConfig = {
     { label: "Exercício da Advocacia" },
   ],
   titulo: "Certidão Judicial de Exercício da Advocacia",
-  subtitulo: "Comprova o exercício da advocacia no TST, abrangendo processos em andamento, arquivados ou devolvidos aos TRTs de origem. Expedida automaticamente e de forma gratuita.",
+  
   tags: ["Certidão de Atuação Profissional", "Comprovante de Atividade Jurídica", "Certidão de Tempo de Advocacia"],
   descricaoEmissao: "Informe o CPF do(a) advogado(a) para gerar a certidão automaticamente.",
   campos: [{ id: "cpf", label: "CPF", placeholder: "000.000.000-00" }],

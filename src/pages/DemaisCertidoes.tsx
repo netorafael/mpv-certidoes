@@ -7,7 +7,7 @@ const config: CertidaoPageConfig = {
     { label: "Outras Certidões de Processos" },
   ],
   titulo: "Outras Certidões de Processos",
-  subtitulo: "Use esta opção para pedir certidões de processos que não aparecem nas outras opções do sistema.",
+  
   tags: ["Certidão Avulsa", "Certidão Especial", "Certidão Sob Demanda", "Certidão Processual Diversa"],
   descricaoEmissao: "Para solicitar outras certidões processuais, preencha o formulário eletrônico disponível no link abaixo.",
   helpItems: [
