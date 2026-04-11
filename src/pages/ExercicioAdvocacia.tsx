@@ -9,7 +9,7 @@ const config: CertidaoPageConfig = {
     { label: "Exercício da Advocacia" },
   ],
   titulo: "Certidão Judicial de Exercício da Advocacia",
-  subtitulo: "Comprova o exercício da advocacia no TST, abrangendo processos em andamento, arquivados ou devolvidos aos TRTs de origem. Expedida automaticamente e de forma gratuita.",
+  subtitulo: "Comprova o exercício da advocacia no TST, abrangendo processos em andamento, arquivados ou devolvidos aos TRTs de origem. Expedida automaticamente e de forma gratuita. Também conhecida como: certidão de atuação profissional, comprovante de atividade jurídica, certidão de tempo de advocacia.",
   descricaoEmissao: "Informe o CPF do(a) advogado(a) para gerar a certidão automaticamente.",
   campos: [{ id: "cpf", label: "CPF", placeholder: "000.000.000-00" }],
   emissaoIcon: <Scale className="h-4 w-4" aria-hidden="true" />,
@@ -21,25 +21,26 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Como solicitar",
+      question: "Quem pode utilizar esse serviço?",
       answer: (
-        <p>A certidão é expedida <strong>automaticamente e de forma gratuita</strong>, a partir do número de inscrição no CPF do(a) advogado(a) informado pelo(a) requerente. Basta informar o CPF no formulário ao lado.</p>
+        <p>Qualquer advogado(a) inscrito(a) na OAB pode solicitar a certidão, informando seu CPF. A certidão automática abrange exclusivamente processos em que o(a) advogado(a) esteja formalmente registrado(a) na autuação.</p>
       ),
     },
     {
-      question: "Custos",
+      question: "Etapas para realização deste serviço",
       answer: (
         <div className="space-y-2">
-          <p>A certidão automática (emitida por CPF) é <strong>gratuita</strong>.</p>
-          <p>Certidões com parâmetros específicos podem estar sujeitas ao recolhimento de emolumentos, conforme a Instrução Normativa nº 20/2002 do TST.</p>
+          <p>A certidão é expedida <strong>automaticamente e de forma gratuita</strong>, a partir do número de inscrição no CPF do(a) advogado(a) informado pelo(a) requerente.</p>
+          <p>Basta informar o CPF no formulário ao lado.</p>
         </div>
       ),
     },
     {
-      question: "Atenção",
+      question: "Outras informações",
       answer: (
         <div className="space-y-2">
-          <p>A certidão automática inclui exclusivamente os processos em que o(a) advogado(a) esteja formalmente registrado(a) na autuação. <strong>Não abrange processos com publicidade restrita.</strong></p>
+          <p>A certidão automática (emitida por CPF) é <strong>gratuita</strong>. Certidões com parâmetros específicos podem estar sujeitas ao recolhimento de emolumentos, conforme a Instrução Normativa nº 20/2002 do TST.</p>
+          <p>A certidão automática <strong>não abrange processos com publicidade restrita</strong>.</p>
           <p>Para certidões com parâmetros específicos — como atuação em processo com publicidade restrita ou atuação em período determinado — é necessário preencher um{" "}
             <a href="https://www.tst.jus.br/portal-da-advocacia/certidoes/exercicio-advocacia" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">formulário específico</a>.
           </p>

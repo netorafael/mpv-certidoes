@@ -7,7 +7,7 @@ const config: CertidaoPageConfig = {
     { label: "Objeto e Pé" },
   ],
   titulo: "Certidão de Objeto e Pé",
-  subtitulo: "Fornece informações detalhadas sobre o objeto (assunto) e o andamento (pé) de um processo trabalhista no TST.",
+  subtitulo: "Fornece informações detalhadas sobre o objeto (assunto) e o andamento (pé) de um processo trabalhista no TST. Também conhecida como: certidão de inteiro teor, certidão sobre o estado do processo, certidão de situação processual.",
   descricaoEmissao: "A Certidão de Objeto e Pé deve ser solicitada por meio de petição dirigida ao processo correspondente, via e-Doc ou PJe.",
   helpItems: [
     {
@@ -17,7 +17,11 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Como solicitar",
+      question: "Quem pode utilizar esse serviço?",
+      answer: <p>Advogados habilitados no processo podem solicitar a certidão. A solicitação deve ser feita por advogado com procuração nos autos.</p>,
+    },
+    {
+      question: "Etapas para realização deste serviço",
       answer: (
         <div className="space-y-2">
           <p>A Certidão de Objeto e Pé deve ser solicitada por meio de <strong>petição</strong> dirigida ao processo correspondente via e-Doc ou PJe.</p>
@@ -26,15 +30,11 @@ const config: CertidaoPageConfig = {
       ),
     },
     {
-      question: "Custos",
-      answer: <p>Pode haver cobrança de emolumentos, conforme disposto na Instrução Normativa nº 20/2002 do TST.</p>,
-    },
-    {
-      question: "Atenção",
+      question: "Outras informações",
       answer: (
         <div className="space-y-2">
+          <p>Pode haver cobrança de emolumentos, conforme disposto na Instrução Normativa nº 20/2002 do TST.</p>
           <p>Caso o processo já tenha sido baixado, o requerimento deve ser dirigido ao <strong>Tribunal Regional do Trabalho (TRT) de origem</strong>.</p>
-          <p>A solicitação deve ser feita por advogado habilitado no processo.</p>
         </div>
       ),
     },
