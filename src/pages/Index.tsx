@@ -81,9 +81,7 @@ const Index = () => {
               ))}
             </div>
           </section>
-          <div className="mb-12 max-w-3xl">
-            <HelpAccordion items={helpItems} />
-          </div>
+          
           <section aria-label="Informações de contato" className="mb-12 bg-card border border-border rounded p-5 max-w-3xl">
             <h2 className="text-sm font-semibold text-foreground mb-2">Precisa de ajuda?</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
