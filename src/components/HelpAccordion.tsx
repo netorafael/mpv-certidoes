@@ -17,16 +17,18 @@ interface HelpAccordionProps {
   className?: string;
 }
 
-const HelpAccordion = ({ items, title = "Dúvidas frequentes", className }: HelpAccordionProps) => {
+const HelpAccordion = ({ items, title, className }: HelpAccordionProps) => {
   return (
-    <section aria-labelledby="help-section-title" className={cn("py-8", className)}>
-      <h2
-        id="help-section-title"
-        className="text-2xl font-bold text-primary mb-6"
-      >
-        {title}
-      </h2>
-      <Accordion type="single" collapsible className="w-full space-y-2">
+    <section aria-labelledby={title ? "help-section-title" : undefined} className={cn("py-8", className)}>
+      {title && (
+        <h2
+          id="help-section-title"
+          className="text-2xl font-bold text-primary mb-6"
+        >
+          {title}
+        </h2>
+      )}
+      <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-2">
         {items.map((item, index) => (
           <AccordionItem
             key={index}
