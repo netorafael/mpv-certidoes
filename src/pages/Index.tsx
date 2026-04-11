@@ -2,7 +2,7 @@ import { FileText, Shield, Scale, Search, FileCheck, ClipboardList, Files } from
 import GovHeader from "@/components/GovHeader";
 import GovBreadcrumb from "@/components/GovBreadcrumb";
 import CertidaoCard from "@/components/CertidaoCard";
-import HelpAccordion, { type HelpItem } from "@/components/HelpAccordion";
+
 import GovFooter from "@/components/GovFooter";
 
 const certidoes = [
@@ -47,43 +47,6 @@ const certidoes = [
     description: "Outros tipos de certidões disponíveis para processos em tramitação no Tribunal Superior do Trabalho.",
     href: "/demais-certidoes",
     icon: <Files className="h-5 w-5 text-primary" />,
-  },
-];
-
-const helpItems: HelpItem[] = [
-  {
-    question: "O que é?",
-    answer: (
-      <p>
-        As certidões são documentos oficiais emitidos pelo Tribunal Superior do Trabalho (TST) que atestam ou comprovam informações específicas, como a existência de processos, o andamento processual ou a regularidade de débitos trabalhistas.
-      </p>
-    ),
-  },
-  {
-    question: "Como solicitar",
-    answer: (
-      <div className="space-y-2">
-        <p>A maioria das certidões pode ser solicitada diretamente pela internet através deste portal. Algumas são emitidas automaticamente de forma imediata, enquanto outras exigem o preenchimento de um formulário para análise manual pela Secretaria-Geral Judiciária.</p>
-        <p>Selecione o tipo de certidão desejada nos cards acima para ver as instruções específicas de solicitação de cada uma.</p>
-      </div>
-    ),
-  },
-  {
-    question: "Custos",
-    answer: (
-      <p>
-        Grande parte das certidões, como a CNDT e a de Indisponibilidade, são gratuitas. No entanto, algumas certidões específicas podem estar sujeitas à cobrança de taxas (emolumentos), conforme as normas vigentes do TST.
-      </p>
-    ),
-  },
-  {
-    question: "Atenção",
-    answer: (
-      <div className="space-y-2">
-        <p>Certidões eletrônicas são emitidas imediatamente. Para pedidos que exigem análise manual, o prazo pode variar.</p>
-        <p>Para processos com restrição de publicidade (segredo de justiça), a certidão não é emitida automaticamente e deve ser solicitada via formulário específico.</p>
-      </div>
-    ),
   },
 ];
 
