@@ -30,6 +30,7 @@ export interface CertidaoPageConfig {
   breadcrumbItems: { label: string; href?: string }[];
   titulo: string;
   subtitulo: string;
+  tags?: string[];
   descricaoEmissao?: string;
   campos?: CertidaoField[];
   customFormContent?: React.ReactNode;
@@ -103,6 +104,16 @@ const CertidaoPageTemplate = ({ config }: { config: CertidaoPageConfig }) => {
             <p className="text-sm text-muted-foreground mt-2 max-w-2xl leading-relaxed">
               {config.subtitulo}
             </p>
+            {config.tags && config.tags.length > 0 && (
+              <p className="text-sm text-muted-foreground mt-1">
+                {config.tags.map((tag, i) => (
+                  <span key={i}>
+                    {i > 0 && " , "}
+                    " {tag} "
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
 
           {/* Form Section */}
